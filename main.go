@@ -46,6 +46,11 @@ func createDummyCalSerialized() (string){
 }
 
 func main() {
+	cal, _ := fetchCalendar("http://www.htwk-stundenplan.de/353b419d/")
+		// for _,e := range cal.Components {
+			fmt.Printf("%#v\n", cal)
+		// }
+	fmt.Print("test")
 	http.HandleFunc("/", routeRoot)
 	http.HandleFunc("/calendar", routeCalendar)
 	err := http.ListenAndServe(":3333", nil)
